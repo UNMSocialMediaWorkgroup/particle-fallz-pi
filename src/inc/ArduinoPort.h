@@ -12,6 +12,8 @@ extern void initArduinoPort(ArduinoPort* port, const char* filename);
 
 extern void closeArduinoPort(ArduinoPort* port);
 
+extern u8 readNextAirbeamByte(ArduinoPort* port);
+
 extern float readNextAirbeamValue(ArduinoPort* port);
 
 #endif  /* PARTICLE_FALLZ_PI_SRC_INC_AIRBEAMREADER_H_ */

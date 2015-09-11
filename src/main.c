@@ -11,7 +11,6 @@ int main(int argc, char** argv) {
   ArduinoPort arduino;
   char packet[2] = {0};
   bool running = true;
-  float nextVal;
   socket.initialized = false;
   arduino.isOpen = false;
 
@@ -23,9 +22,8 @@ int main(int argc, char** argv) {
   inet_pton(AF_INET, "10.0.0.10", &ip4addr.sin_addr);
 
   while (running) {
-    nextVal = readNextAirbeamValue(&arduino);
-    packet[0] = (u8)(255.0f * nextVal);
-    printf("Sending byte: %u (%f)\n", packet[0] & 0xff, nextVal);
+    packet[0] = readNextAirbeamByte(&arduino);
+    printf("Sending byte: %u\n", packet[0] & 0xff);
     sendUDPPacket(&socket, packet, (struct sockaddr*)&ip4addr, 1);
   }
 

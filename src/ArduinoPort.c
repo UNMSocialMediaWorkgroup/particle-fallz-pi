@@ -36,6 +36,12 @@ void closeArduinoPort(ArduinoPort* port) {
   port->isOpen = false;
 }
 
+u8 readNextAirbeamByte(ArduinoPort* port) {
+  float f = readNextAirbeamValue(port);
+
+  return (u32)(10.0f * ((f - 0.1f)));
+}
+
 float readNextAirbeamValue(ArduinoPort* port) {
   float f;
   skipToAnalogTotal(port);

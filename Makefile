@@ -24,10 +24,10 @@ $(OUTDIRS):
 	mkdir -p $@
 
 $(BUILDDIR)/%.o:	$(SRCDIR)/%.c
-	$(CC) $(CFLAGS) $(LINKS) -I$(INCDIR) -c -o $@ $^
+	$(CC) $(LINKS) $(CFLAGS) -I$(INCDIR) -c -o $@ $^
 
 $(EXE):	$(OBJECTS)
-	$(CC) $(CFLAGS) $(LINKS) -I$(INCDIR) -o $@ $^
+	$(CC) $(LINKS) $(CFLAGS) -I$(INCDIR) -o $@ $^
 
 clean:
 	rm -rf $(ALLDEPS)
