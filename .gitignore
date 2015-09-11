@@ -1,3 +1,8 @@
+# Emacs backup stuff
+*~
+[#]*[#]
+bin/*
+
 # Object files
 *.o
 *.ko
